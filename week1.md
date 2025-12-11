@@ -79,18 +79,61 @@ The network is configured using UTM's **Shared Network** mode (Emulated VLAN).
 
 **Evidence of Network Configuration:**
 
-## 5\. System Specifications (CLI Evidence)
+## 5. System Specifications (CLI Evidence)
 
 The following evidence demonstrates the successful deployment of the headless server and the establishment of remote administration capability.
 
-**System Specs (Kernel, Memory, Disk):**
-*Evidence of `uname -a`, `free -h`, and `df -h` commands running on ARM64 architecture.*
+---
 
-**IP Address Configuration:**
-*Evidence of `ip addr` showing valid IP assignment.*
+### 📸 Screenshot 1 — System Information (`uname -a`)
+This screenshot shows the kernel version, confirming:
+- **ARM64 architecture**
+- **Ubuntu Server 24.04 LTS**
+- **Virtualized environment running under UTM**
 
-**Successful Remote SSH Connection:**
-*Demonstration of successful remote login from macOS terminal to Ubuntu Server.*
+![Screenshot 1: uname -a](evidence/screenshot1.png)
+
+---
+
+### 📸 Screenshot 2 — Memory Information (`free -h`)
+This screenshot provides evidence of:
+- Total available RAM allocated to the VM  
+- Proper system initialization  
+- Expected memory usage for a headless server
+
+![Screenshot 2: free -h](evidence/screenshot2.png)
+
+---
+
+### 📸 Screenshot 3 — Disk Usage (`df -h`)
+This screenshot confirms:
+- The size of the virtual disk (`qcow2`)  
+- Mounted filesystems  
+- Adequate free space for server operation  
+
+![Screenshot 3: df -h](evidence/screenshot3.png)
+
+---
+
+### 📸 Screenshot 4 — IP Address Assignment (`ip addr`)
+This screenshot verifies:
+- Network interface `enp0s1`  
+- Correct IP assignment `192.168.64.x`  
+- Connectivity via UTM’s shared network (vmnet NAT)
+
+![Screenshot 4: ip addr](evidence/screenshot4.png)
+
+---
+
+### 📸 Screenshot 5 — Successful Remote SSH Connection
+This screenshot shows:
+- Remote login from macOS Terminal  
+- Working SSH configuration  
+- The system accepting connections on **Port 22**
+
+![Screenshot 5: SSH Login](evidence/screenshot5.png)
+
+---
 
 ```
 ```
