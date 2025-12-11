@@ -1,9 +1,3 @@
-Here is the **exact, corrected code** you need.
-
-I have added the necessary spacing so the diagram and the list below it will separate correctly.
-
-**Action:** Delete everything in your file, paste this, and click **Commit changes**.
-
 ````markdown
 # Week 1: System Planning and Distribution Selection
 
