@@ -4,6 +4,30 @@
 This project utilizes a dual-system architecture designed to simulate a professional remote administration environment. The infrastructure allows for complete isolation of the server environment while maintaining administrative access via SSH.
 
 ### Architecture Diagram
+### **Option 2: The Visual Graph (Mermaid.js)**
+If you prefer a visual flow chart instead of text, you can use this code. It is cleaner but has less technical detail than your text version.
+
+```mermaid
+graph TD
+    subgraph Host["Physical Host: MacBook Pro (Apple Silicon)"]
+        Terminal[Terminal SSH Client]
+        Bridge[Bridge100: 192.168.64.1]
+        Hypervisor[UTM / QEMU Engine]
+    end
+
+    subgraph Guest["Guest VM: Ubuntu 24.04 (ARM64)"]
+        Interface[Interface: enp0s1<br/>IP: 192.168.64.8]
+        SSHD[OpenSSH Server :22]
+        Disk[Storage: virtio-blk<br/>disk-0.qcow2]
+    end
+
+    Terminal -->|SSH Traffic| Bridge
+    Bridge -->|Virtio-Net| Interface
+    Interface --> SSHD
+    Hypervisor -.->|Manages| Guest
+
+    style Host fill:#f9f9f9,stroke:#333
+    style Guest fill:#ffe0b2,stroke:#f28e1c
 * **Host:** MacBook Pro (Apple Silicon) - Workstation
 * **Hypervisor:** UTM (QEMU Virtualization)
 * **Guest:** Ubuntu Server 24.04 LTS (ARM64)
