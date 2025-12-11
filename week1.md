@@ -4,30 +4,50 @@
 This project utilizes a dual-system architecture designed to simulate a professional remote administration environment. The infrastructure allows for complete isolation of the server environment while maintaining administrative access via SSH.
 
 ### Architecture Diagram
-### **Option 2: The Visual Graph (Mermaid.js)**
-If you prefer a visual flow chart instead of text, you can use this code. It is cleaner but has less technical detail than your text version.
+The following diagram illustrates the virtualization stack on the Apple Silicon host, detailing the network bridge and hardware passthrough layers.
 
-```mermaid
-graph TD
-    subgraph Host["Physical Host: MacBook Pro (Apple Silicon)"]
-        Terminal[Terminal SSH Client]
-        Bridge[Bridge100: 192.168.64.1]
-        Hypervisor[UTM / QEMU Engine]
-    end
-
-    subgraph Guest["Guest VM: Ubuntu 24.04 (ARM64)"]
-        Interface[Interface: enp0s1<br/>IP: 192.168.64.8]
-        SSHD[OpenSSH Server :22]
-        Disk[Storage: virtio-blk<br/>disk-0.qcow2]
-    end
-
-    Terminal -->|SSH Traffic| Bridge
-    Bridge -->|Virtio-Net| Interface
-    Interface --> SSHD
-    Hypervisor -.->|Manages| Guest
-
-    style Host fill:#f9f9f9,stroke:#333
-    style Guest fill:#ffe0b2,stroke:#f28e1c
+```text
++------------------------------------------------------------------------------------------------------+
+|                           PHYSICAL HOST: Apple MacBook Pro (Apple Silicon)                           |
+|                                                                                                      |
+|  macOS Host OS                                                                                       |
+|  --------------------------------------------------------------------------------------------------  |
+|  • Terminal/iTerm2 (SSH Client)                                                                      |
+|  • Networking Stack: vmnet, pf firewall, routing table                                               |
+|  • Virtual Bridge: bridge100  (IP: 192.168.64.1)                                                     |
+|  • UTM Virtualization Engine:                                                                        |
+|        - QEMU (aarch64) + Apple Hypervisor Framework                                                 |
+|        - Virtio Devices (Net/Block/Balloon)                                                          |
+|        - UEFI Firmware                                                                               |
+|                                                                                                      |
+|  Traffic Flow (SSH): macOS → bridge100 → vmnet NAT/bridge → VM.enp0s1 → sshd                         |
++---------------------------------------------|--------------------------------------------------------+
+                                              |
+                                              v
++------------------------------------------------------------------------------------------------------+
+|                           GUEST VM: Ubuntu Server 24.04 LTS (ARM64)                                  |
+|                                                                                                      |
+|  Virtual Hardware:                                                                                   |
+|     • vCPU (AArch64)                                                                                 |
+|     • RAM (virtio-balloon)                                                                           |
+|     • Disk: disk-0.qcow2 (virtio-blk)                                                                |
+|     • Network: enp0s1 (virtio-net)                                                                   |
+|            - IP: 192.168.64.8                                                                        |
+|            - Gateway: 192.168.64.1                                                                   |
+|                                                                                                      |
+|  OS Services:                                                                                        |
+|     • systemd                                                                                        |
+|     • cloud-init (first boot)                                                                        |
+|     • netplan (network config)                                                                       |
+|     • OpenSSH Server (sshd :22)                                                                      |
+|                                                                                                      |
+|  VM Directory Structure (UTM .utm bundle):                                                           |
+|     • config.plist                                                                                   |
+|     • Data/                                                                                          |
+|          ├── disk-0.qcow2                                                                            |
+|          ├── nvram                                                                                   |
+|          └── EFI vars                                                                                |
++------------------------------------------------------------------------------------------------------+
 * **Host:** MacBook Pro (Apple Silicon) - Workstation
 * **Hypervisor:** UTM (QEMU Virtualization)
 * **Guest:** Ubuntu Server 24.04 LTS (ARM64)
