@@ -91,7 +91,7 @@ This screenshot shows the kernel version, confirming:
 - **Ubuntu Server 24.04 LTS**
 - **Virtualized environment running under UTM**
 
-![Screenshot 1: uname -a](evidence/screenshot1.png)
+![Screenshot 1: uname -a](evidence/Screenshot1.png)
 
 ---
 
@@ -101,7 +101,7 @@ This screenshot provides evidence of:
 - Proper system initialization  
 - Expected memory usage for a headless server
 
-![Screenshot 2: free -h](evidence/screenshot2.png)
+![Screenshot 2: free -h](evidence/Screenshot2.png)
 
 ---
 
@@ -111,7 +111,7 @@ This screenshot confirms:
 - Mounted filesystems  
 - Adequate free space for server operation  
 
-![Screenshot 3: df -h](evidence/screenshot3.png)
+![Screenshot 3: df -h](evidence/Screenshot3.png)
 
 ---
 
@@ -121,7 +121,7 @@ This screenshot verifies:
 - Correct IP assignment `192.168.64.x`  
 - Connectivity via UTM’s shared network (vmnet NAT)
 
-![Screenshot 4: ip addr](evidence/screenshot4.png)
+![Screenshot 4: ip addr](evidence/Screenshot4.png)
 
 ---
 
@@ -131,7 +131,7 @@ This screenshot shows:
 - Working SSH configuration  
 - The system accepting connections on **Port 22**
 
-![Screenshot 5: SSH Login](evidence/screenshot5.png)
+![Screenshot 5: SSH Login](evidence/Screenshot5.png)
 
 ---
 
