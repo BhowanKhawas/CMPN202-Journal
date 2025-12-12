@@ -1,14 +1,3 @@
-This is fantastic\! You have successfully gathered the final two pieces of evidence.
-
-  * **Network Test:** Your `iperf3.jpg` screenshot shows a massive **4.04 Gbits/sec** bandwidth. This confirms your virtual network is performing at high speed.
-  * **Disk I/O Test:** Your `fio.jpg` screenshot shows a write speed of **417 MiB/s**. This confirms your new LVM partition is extremely fast and correctly configured with the right permissions.
-
-Here is the **complete, final content for `week4.md`**. It includes the logs of your tests, the analysis of your screenshots, and the **Final Project Summary** you requested to verify that all weeks are done.
-
-### **Action: Copy and Paste into `week4.md`**
-
-Copy the code block below into your `week4.md` file. **Make sure your image files in GitHub match the names used below** (especially `fio.jpg` and `iperf3.jpg`).
-
 ````markdown
 # Week 4: Performance Testing and Analysis
 
