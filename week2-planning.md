@@ -54,12 +54,10 @@ This threat model identifies three primary attack vectors applicable to a headle
 
 ### **Final Week 2 Summary**
 
-You have now completed the documentation for **all three deliverables** of Phase 2 (Security Planning):
+I have now completed the documentation for **all three deliverables** of Phase 2 (Security Planning):
 
 1.  **[x] Performance Testing Plan**
 2.  **[x] Security Configuration Checklist**
 3.  **[x] Threat Model**
 
-**You are completely finished with the work for Week 2!**
 
-Please save your file by clicking **Commit changes** on GitHub. You can now relax and prepare for Week 3.
