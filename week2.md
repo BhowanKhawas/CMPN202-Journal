@@ -39,5 +39,5 @@ To fully secure the SSH service, I modified the server configuration to reject a
 * **Verification:** Attempted a forced password login, which was successfully rejected by the server.
 
 **Evidence of Secured Access:**
-![Permission Denied](lockout.png)
+![Permission Denied](lookout.png)
 *(Screenshot showing "Permission denied (publickey)" when attempting password login)*
