@@ -26,10 +26,17 @@ This repository contains the technical journal documenting the setup, configurat
     * Performance Testing Plan
     * Threat Model
 
-### Future Phases (Coming Soon)
-* **Week 3: Storage Configuration (LVM)**
-* **Week 4: Performance Testing and Analysis**
+### Phase 3: Storage & Performance Planning
+* **[Week 3: Storage Configuration and Performance Planning](week3.md)**
+    * Logical Volume Management (LVM) Setup Log (PV, VG, LV)
+    * Persistent Mount Configuration (/etc/fstab)
+    * Application Selection Matrix
+    * Expected Resource Profiles and Monitoring Strategy
+  
+### Phase 4: Testing and Analysis
+* **[Week 3: Performance Testing and Analysis](week4.md)**
 
+### Future Phases (Coming Soon)
 ---
 
 ## 🛠️ Infrastructure Overview
