@@ -34,13 +34,12 @@ This repository contains the technical journal documenting the setup, configurat
     * Expected Resource Profiles and Monitoring Strategy
   
 ### Phase 4: Testing and Analysis
-* **[Week 3: Performance Testing and Analysis](week4.md)**
+* **[Week 4: Performance Testing and Analysis](week4.md)**
 
 ### Future Phases (Coming Soon)
----
 
 ## 🛠️ Infrastructure Overview
-
+---
 | Component | Host / Guest | Details |
 | :--- | :--- | :--- |
 | **Workstation** | Host (MacBook Pro) | macOS Terminal (ZSH) |
