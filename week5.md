@@ -3,7 +3,7 @@
 ## 1. Video Presentation
 This video demonstrates the successful deployment, security hardening, storage configuration, and performance testing of the Ubuntu Server.
 
-* **Video Link:** [INSERT YOUR YOUTUBE/DRIVE LINK HERE]
+* **Video Link:** [gg]
 * **Duration:** 5-7 minutes
 
 **Demonstration Highlights:**
