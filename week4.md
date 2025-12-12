@@ -1,56 +1,77 @@
+````markdown
 # Week 4: Performance Testing and Analysis
 
-This phase executes the performance testing plan established in Week 3, utilising the `stress-ng`, `fio`, and `iperf3` utilities to benchmark the server under different workload conditions.
+This phase executes the performance testing plan established in Week 3, utilizing the `stress-ng`, `fio`, and `iperf3` utilities to benchmark the server under different workload conditions.
 
 ## 1. Test Setup and Installation Log
 
-Before testing, the necessary utilities were installed on the server via SSH. The verification below confirms all required tools are present.
+Prior to testing, the necessary utilities were installed on the server via SSH. The verification below confirms all required tools are present.
 
 ```bash
 # Verify installation of performance testing tools
 apt list --installed | grep -E "(stress-ng|fio|iperf3|nginx)"
+````
 
-2. Performance Testing Execution and Results
+## 2\. Performance Testing Execution and Results
+
 All tests were performed remotely from the Host Workstation via SSH.
 
-A. CPU-Intensive Workload (stress-ng)
-Objective: Measure maximum CPU throughput and core stability. Command: stress-ng --cpu 4 --timeout 60s
-Metric	Result	Observation
-CPU Utilization	~98-100%	CPU cores were fully saturated.
-Status	Passed: The test completed successfully without crashing the system.
+### A. CPU-Intensive Workload (`stress-ng`)
 
-B. I/O-Intensive Workload (fio)
-Objective: Test the read/write performance of the new LVM partition (/mnt/storage). Preparation: Permissions were adjusted to allow the non-root user to write to the mount point (sudo chown -R bhowan:bhowan /mnt/storage).
+**Objective:** Measure maximum CPU throughput and core stability.
+**Command:** `stress-ng --cpu 4 --timeout 60s`
 
-Command: fio --name=randwrite --ioengine=libaio ... --directory=/mnt/storage
+| Metric | Result | Observation |
+| :--- | :--- | :--- |
+| **CPU Utilization** | \~98-100% | CPU cores were fully saturated. |
+| **Status** | Passed | The test completed successfully without crashing the system. |
 
-Metric	Result	Analysis
-Throughput (Write)	417 MiB/s	Extremely high throughput for a virtualized disk.
-IOPS	107k	Indicates the VirtIO driver is functioning efficiently with low overhead.
+### B. I/O-Intensive Workload (`fio`)
 
-C. Network-Intensive Workload (iperf3)
-Objective: Measure maximum bandwidth between the Host (Mac) and Guest (Ubuntu). Procedure: iperf3 -s was run on the server, and iperf3 -c 192.168.64.8 was executed from the Mac terminal.
+**Objective:** Test the read/write performance of the new LVM partition (`/mnt/storage`).
+**Preparation:** Permissions were adjusted to allow the non-root user to write to the mount point (`sudo chown -R bhowan:bhowan /mnt/storage`).
 
-Metric	Result	Analysis
-Bandwidth (Host -> Guest)	4.04 Gbits/sec. Validates that the virtual network bridge supports gigabit-class speeds suitable for production workloads.
-Transfer Volume	4.70 GB	Transferred nearly 5GB of data in 10 seconds with no connection drops.
+**Command:** `fio --name=randwrite --ioengine=libaio ... --directory=/mnt/storage`
 
-3. Conclusion and Security Review
+| Metric | Result | Analysis |
+| :--- | :--- | :--- |
+| **Throughput (Write)** | **417 MiB/s** | Extremely high throughput for a virtualized disk. |
+| **IOPS** | **107k** | Indicates the VirtIO driver is functioning efficiently with low overhead. |
+
+### C. Network-Intensive Workload (`iperf3`)
+
+**Objective:** Measure maximum bandwidth between the Host (Mac) and Guest (Ubuntu).
+**Procedure:** `iperf3 -s` was run on the server, and `iperf3 -c 192.168.64.8` was executed from the Mac terminal.
+
+| Metric | Result | Analysis |
+| :--- | :--- | :--- |
+| **Bandwidth (Host -\> Guest)** | **4.04 Gbits/sec** | Validates that the virtual network bridge supports gigabit-class speeds suitable for production workloads. |
+| **Transfer Volume** | 4.70 GBytes | Transferred nearly 5GB of data in 10 seconds with no connection drops. |
+
+-----
+
+## 3\. Conclusion and Security Review
+
 The performance tests confirm that the server is stable under extreme load across CPU, I/O, and Network resources.
 
-CPU: Handled 100% load across 4 cores.
+  * **CPU:** Handled 100% load across 4 cores.
+  * **Storage:** The LVM partition provides high-speed access (\>400 MB/s) for data storage.
+  * **Network:** The connection is stable and capable of high-speed transfers (\>4 Gbps).
 
-Storage: The LVM partition provides high-speed access (>400 MB/s) for data storage.
+-----
 
-Network: The connection is stable and capable of high-speed transfers (>4 Gbps).
+## 4\. Final Project Completion Summary
 
-4. Final Project Completion Summary
-This section confirms that all deliverables for Weeks 1 through 4 have been completed and documented.
+This section confirms that all deliverables for Weeks 1 through 4 have been successfully completed and documented.
 
-Phase	Week	Deliverable	Status	Key Evidence
-Deployment	1	System Architecture & Network Config	COMPLETE	ipadd.png, Architecture Diagram
-Security	2	System Updates & Firewall (UFW)	COMPLETE	firewall.png, updates1.png
-2	SSH Hardening (Key Auth & Lockout)	COMPLETE	ssh.png, lockout.png
-Storage	3	LVM Implementation (PV/VG/LV)	COMPLETE	LVM.png (vgs/lvs)
-3	Persistent Mounting (/etc/fstab)	COMPLETE	mounted.png (df -h)
-Testing	4	Performance Benchmarking	COMPLETE	fio.png and iperf3.png
+| Phase | Week | Deliverable | Status | Key Evidence |
+| :--- | :--- | :--- | :--- | :--- |
+| **Deployment** | 1 | System Architecture & Network Config | **COMPLETE** | `ipadd.png`, Architecture Diagram |
+| **Security** | 2 | System Updates & Firewall (UFW) | **COMPLETE** | `firewall.png`, `updates1.png` |
+| | 2 | SSH Hardening (Key Auth & Lockout) | **COMPLETE** | `ssh.png`, `lockout.png` |
+| **Storage** | 3 | LVM Implementation (PV/VG/LV) | **COMPLETE** | `LVM.png` (vgs/lvs) |
+| | 3 | Persistent Mounting (/etc/fstab) | **COMPLETE** | `mounted.png` (df -h) |
+| **Testing** | 4 | Performance Benchmarking | **COMPLETE** | `fio.png` and `iperf3.png` |
+
+```
+```
