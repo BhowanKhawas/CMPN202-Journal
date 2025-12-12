@@ -33,7 +33,7 @@ I generated an **Ed25519** key pair on the host workstation (MacBook) and instal
 *(Screenshot showing successful login without a password prompt)*
 
 ### 3.2 Disabling Password Authentication
-To fully secure the SSH service, I modified the server configuration to reject all password-based login attempts. This renders brute-force dictionary attacks ineffective, as the server will simply deny connection attempts that do not possess the private key.
+To fully secure the SSH service, I modified the server configuration to reject all password-based login attempts. This renders brute-force dictionary attacks ineffective, as the server will deny connection attempts that do not possess the private key.
 
 * **Configuration Change:** Edited `/etc/ssh/sshd_config.d/50-cloud-init.conf` to set `PasswordAuthentication no`.
 * **Verification:** Attempted a forced password login, which was successfully rejected by the server.
