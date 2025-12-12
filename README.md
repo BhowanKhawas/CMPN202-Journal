@@ -1,14 +1,41 @@
-# CMPN202 Operating Systems Journal
+# 💻 CMPN202 Operating Systems Journal
 
-Student Name:  BHOWAN KHAWAS
-Student ID:    A00028871
+**Student Name:** Bhowan Khawas
+**Student ID:** A00028871
 
-## Table of Contents ##
-* [Week 1: System Planning and Distribution Selection](week1.md)
-* [Week 2: Security Planning and Hardening](week2.md)
-* [Week 2: Security Planning Documents](week2-planning.md)
-* Week 3: Application Selection (Coming Soon)
-* Week 4: Implementation (Coming Soon)
-* Week 5: Advanced Security (Coming Soon)
-* Week 6: Performance Analysis (Coming Soon)
-* Week 7: Final Audit (Coming Soon)
+This repository contains the technical journal documenting the setup, configuration, security hardening, and performance analysis of a headless Ubuntu Server 24.04 LTS (ARM64) virtual machine, administered remotely from a macOS workstation.
+
+---
+
+## 📚 Journal Contents
+
+### Phase 1: Deployment & Planning
+* **[Week 1: System Planning and Distribution Selection](week1.md)**
+    * System Architecture Diagram
+    * Host & Guest Configuration Justification
+    * Network Configuration and CLI Evidence
+
+### Phase 2: Security & Hardening
+* **[Week 2: Security Implementation Log](week2.md)**
+    * Evidence of System Updates (`apt upgrade`)
+    * Firewall Configuration (`ufw`)
+    * SSH Public Key Authentication and Password Lockout
+* **[Week 2: Security Planning Documents](week2-planning.md)**
+    * Security Configuration Checklist
+    * Performance Testing Plan
+    * Threat Model
+
+### Future Phases (Coming Soon)
+* **Week 3: Storage Configuration (LVM)**
+* **Week 4: Performance Testing and Analysis**
+
+---
+
+## 🛠️ Infrastructure Overview
+
+| Component | Host / Guest | Details |
+| :--- | :--- | :--- |
+| **Workstation** | Host (MacBook Pro) | macOS Terminal (ZSH) |
+| **Hypervisor** | Host | UTM (QEMU / Apple Hypervisor Framework) |
+| **Server OS** | Guest | Ubuntu Server 24.04 LTS (ARM64) |
+| **Network** | Shared | Host-Only equivalent (192.168.64.0/24) |
