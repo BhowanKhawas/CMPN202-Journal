@@ -52,7 +52,7 @@ The following diagram illustrates the virtualization stack on the Apple Silicon 
 ````
 
   * **Host:** MacBook Pro (Apple Silicon) - Workstation
-  * **Hypervisor:** UTM (QEMU Virtualization)
+  * **Hypervisor:** UTM (QEMU Virtualisation)
   * **Guest:** Ubuntu Server 24.04 LTS (ARM64)
   * **Connection:** SSH over Shared Network (Port 22)
 
@@ -79,21 +79,21 @@ The network is configured using UTM's **Shared Network** mode (Emulated VLAN).
 
 
 **Evidence of Network Configuration:**
-![UTM Network Settings](Screenshot4.png)
+![UTM Network Settings](lsb.png)
 
 ## 5. System Specifications (CLI Evidence)
 The following evidence demonstrates the successful deployment of the headless server and the establishment of remote administration capability.
 
 **System Specs (Kernel, Memory, Disk):**
-![System Specs](Screenshot2.png)
+![System Specs](uname.png)
 *Evidence of `uname -a`, `free -h`, and `df -h` commands running on ARM64 architecture.*
 
 **IP Address Configuration:**
-![IP Address](Screenshot3.png)
+![IP Address](ipadd.png)
 *Evidence of `ip addr` showing valid IP assignment.*
 
 **Successful Remote SSH Connection:**
-![SSH Connection](Screenshot5.png)
+![SSH Connection](ssh.png)
 *Demonstration of successful remote login from macOS terminal to Ubuntu Server.*
 
 
