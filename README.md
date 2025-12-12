@@ -1,7 +1,8 @@
 # 💻 CMPN202 Operating Systems Journal
 
-**Student Name:** Bhowan Khawas
-**Student ID:** A00028871
+Student Name: Bhowan Khawas
+
+Student ID: A00028871
 
 This repository contains the technical journal documenting the setup, configuration, security hardening, and performance analysis of a headless Ubuntu Server 24.04 LTS (ARM64) virtual machine, administered remotely from a macOS workstation.
 
