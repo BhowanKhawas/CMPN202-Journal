@@ -1,12 +1,13 @@
 # Week 4: Performance Testing and Analysis
 
-This phase executes the performance testing plan established in Week 3, utilizing the `stress-ng`, `fio`, and `iperf3` utilities to benchmark the server under different workload conditions.
+This phase executes the performance testing plan established in Week 3, utilising the `stress-ng`, `fio`, and `iperf3` utilities to benchmark the server under different workload conditions.
 
 ## 1. Test Setup and Installation Log
 
-Prior to testing, the necessary utilities were installed on the server via SSH. The verification below confirms all required tools are present.
+Before testing, the necessary utilities were installed on the server via SSH. The verification below confirms all required tools are present.
 
 # Verify installation of performance testing tools
+![installation proof](installproof.png)
 apt list --installed | grep -E "(stress-ng|fio|iperf3|nginx)"
 
 ## 2\. Performance Testing Execution and Results
@@ -14,6 +15,7 @@ apt list --installed | grep -E "(stress-ng|fio|iperf3|nginx)"
 All tests were performed remotely from the Host Workstation via SSH.
 
 ### A. CPU-Intensive Workload (`stress-ng`)
+![cpu-intensive workload](cpustress.png)
 
 **Objective:** Measure maximum CPU throughput and core stability.
 **Command:** `stress-ng --cpu 4 --timeout 60s`
@@ -24,6 +26,7 @@ All tests were performed remotely from the Host Workstation via SSH.
 | **Status** | Passed | The test completed successfully without crashing the system. |
 
 ### B. I/O-Intensive Workload (`fio`)
+![I/O-Intensive Workload](fio.png)
 
 **Objective:** Test the read/write performance of the new LVM partition (`/mnt/storage`).
 **Preparation:** Permissions were adjusted to allow the non-root user to write to the mount point (`sudo chown -R bhowan:bhowan /mnt/storage`).
@@ -36,6 +39,7 @@ All tests were performed remotely from the Host Workstation via SSH.
 | **IOPS** | **107k** | Indicates the VirtIO driver is functioning efficiently with low overhead. |
 
 ### C. Network-Intensive Workload (`iperf3`)
+![Network-Intensive Workload](iperf3.png)
 
 **Objective:** Measure maximum bandwidth between the Host (Mac) and Guest (Ubuntu).
 **Procedure:** `iperf3 -s` was run on the server, and `iperf3 -c 192.168.64.8` was executed from the Mac terminal.
@@ -59,11 +63,11 @@ The performance tests confirm that the server is stable under extreme load acros
 
 ## 4\. Final Project Completion Summary
 
-This section confirms that all deliverables for Weeks 1 through 4 have been successfully completed and documented.
+This section confirms that all deliverables for Weeks 1 through 4 have been completed and documented.
 
 | Phase | Week | Deliverable | Status | Key Evidence |
 | :--- | :--- | :--- | :--- | :--- |
-| **Deployment** | 1 | System Architecture & Network Config | **COMPLETE** | `ipadd.png`, Architecture Diagram |
+| **Deployment** | 1 | System Architecture & Network Config | **COMPLETE** | (ipadd.png), Architecture Diagram |
 | **Security** | 2 | System Updates & Firewall (UFW) | **COMPLETE** | `firewall.png`, `updates1.png` |
 | | 2 | SSH Hardening (Key Auth & Lockout) | **COMPLETE** | `ssh.png`, `lockout.png` |
 | **Storage** | 3 | LVM Implementation (PV/VG/LV) | **COMPLETE** | `LVM.png` (vgs/lvs) |
