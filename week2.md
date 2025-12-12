@@ -29,7 +29,7 @@ The default password-based authentication is vulnerable to brute-force attacks. 
 I generated an **Ed25519** key pair on the host workstation (MacBook) and installed the public key on the server. This cryptographic handshake is significantly more secure than standard passwords.
 
 **Evidence of Key-Based Login:**
-![SSH Key Login](ssh.png)
+![SSH Key Login](sshlog.png)
 *(Screenshot showing successful login without a password prompt)*
 
 ### 3.2 Disabling Password Authentication
