@@ -5,12 +5,11 @@ This phase executes the performance testing plan established in Week 3, utilisin
 
 ## 1. Test Setup and Installation Log
 
-Prior to testing, the necessary utilities were installed on the server via SSH.
+Before testing, the necessary utilities were installed on the server via SSH. The verification below confirms all required tools are present.
 
 ```bash
-# Install performance testing tools and web server
-sudo apt update
-sudo apt install -y stress-ng fio iperf3 nginx
+# Verify installation of performance testing tools
+apt list --installed | grep -E "(stress-ng|fio|iperf3|nginx)"
 ````
 
 ## 2\. Performance Testing Execution and Results
@@ -63,7 +62,7 @@ The performance tests confirm that the server is stable under extreme load acros
 
 ## 4\. Final Project Completion Summary
 
-This section confirms that all deliverables for Weeks 1 through 4 have been successfully completed and documented.
+This section confirms that all deliverables for Weeks 1 through 4 have been completed and documented.
 
 | Phase | Week | Deliverable | Status | Key Evidence |
 | :--- | :--- | :--- | :--- | :--- |
@@ -75,14 +74,4 @@ This section confirms that all deliverables for Weeks 1 through 4 have been succ
 | **Testing** | 4 | Performance Benchmarking | **COMPLETE** | `fio` and `iperf3` results |
 
 ```
-
-### **Final Step: Check Your Files**
-1.  **Commit** this text to your `week4.md` file.
-2.  **Ensure** your screenshot files are named correctly in your repository:
-    * `installation.png` (The apt install screenshot)
-    * `cpu-stress.png` (The successful stress-ng run or top output)
-    * `fio.jpg` (The one you just took)
-    * `iperf3.jpg` (The one you just took)
-
-**Congratulations! You have officially finished the entire project!** 🚀
 ```
