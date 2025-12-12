@@ -9,10 +9,14 @@ This section documents the creation of a flexible, independent 4GB storage parti
 | `sudo pvcreate /dev/vdb` | Initialized the disk as a Physical Volume (PV). | COMPLETE |
 | `sudo vgcreate vg_data /dev/vdb` | Created a Volume Group (VG) to pool the disk space. | COMPLETE |
 | `sudo lvcreate -l 100%FREE -n lv_storage vg_data` | Created the Logical Volume (LV) using all available space. | COMPLETE |
+**Evidence:** Logical Volume Structure (`vgs` and `lvs`)
+![LVM Structure](LVM.png) 
 | `sudo mkfs.ext4 /dev/mapper/vg_data-lv_storage` | Formatted the LV with the ext4 filesystem. | COMPLETE |
 | `sudo mkdir /mnt/storage` | Created the mount point. | COMPLETE |
 | `sudo mount ... /mnt/storage` | Mounted the new partition. | COMPLETE |
 | **Persistence** | Updated `/etc/fstab` with the UUID to ensure the LV remounts on reboot. | COMPLETE |
+**Evidence:** Final Persistent Mount Verification (`df -h` after reboot)
+![Final Mount Verification](mounted.png)
 
 ---
 
