@@ -1,4 +1,3 @@
-````markdown
 # Week 4: Performance Testing and Analysis
 
 This phase executes the performance testing plan established in Week 3, utilising the `stress-ng`, `fio`, and `iperf3` utilities to benchmark the server under different workload conditions.
@@ -10,7 +9,6 @@ Before testing, the necessary utilities were installed on the server via SSH. Th
 ```bash
 # Verify installation of performance testing tools
 apt list --installed | grep -E "(stress-ng|fio|iperf3|nginx)"
-````
 
 ## 2\. Performance Testing Execution and Results
 
