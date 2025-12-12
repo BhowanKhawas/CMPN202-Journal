@@ -5,7 +5,7 @@ Student ID:    A00028871
 
 ## Table of Contents ##
 * [Week 1: System Planning and Distribution Selection](week1.md)
-* Week 2: Security Planning (Coming Soon)
+* [Week 2: Security Planning and Hardening](week2.md)
 * Week 3: Application Selection (Coming Soon)
 * Week 4: Implementation (Coming Soon)
 * Week 5: Advanced Security (Coming Soon)
