@@ -1,4 +1,3 @@
-````markdown
 # Week 1: System Planning and Distribution Selection
 
 ## 1. System Architecture
@@ -7,7 +6,7 @@ This project utilizes a dual-system architecture designed to simulate a professi
 ### Architecture Diagram
 The following diagram illustrates the virtualization stack on the Apple Silicon host, detailing the network bridge and hardware passthrough layers.
 
-```text
+````markdown
 +------------------------------------------------------------------------------------------------------+
 |                           PHYSICAL HOST: Apple MacBook Pro (Apple Silicon)                           |
 |                                                                                                      |
