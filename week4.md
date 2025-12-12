@@ -67,7 +67,7 @@ This section confirms that all deliverables for Weeks 1 through 4 have been comp
 
 | Phase | Week | Deliverable | Status | Key Evidence |
 | :--- | :--- | :--- | :--- | :--- |
-| **Deployment** | 1 | System Architecture & Network Config | **COMPLETE** | (ipadd.png), Architecture Diagram |
+| **Deployment** | 1 | System Architecture & Network Config | **COMPLETE** | `ipadd.png`, Architecture Diagram |
 | **Security** | 2 | System Updates & Firewall (UFW) | **COMPLETE** | `firewall.png`, `updates1.png` |
 | | 2 | SSH Hardening (Key Auth & Lockout) | **COMPLETE** | `ssh.png`, `lockout.png` |
 | **Storage** | 3 | LVM Implementation (PV/VG/LV) | **COMPLETE** | `LVM.png` (vgs/lvs) |
