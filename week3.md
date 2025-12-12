@@ -1,25 +1,19 @@
 # Week 3: Storage Configuration and Performance Planning
 
 ## 1. Storage Configuration Log (LVM Implementation)
-This section documents the creation of a flexible, independent 4GB storage partition using Logical Volume Management (LVM) for future data and test applications.
 
-| Command/Action | Purpose | Status |
-| :--- | :--- | :--- |
-| **Hardware Setup** | Added a new 4GB virtual disk (`/dev/vdb`) via UTM settings. | COMPLETE |
-| `sudo pvcreate /dev/vdb` | Initialized the disk as a Physical Volume (PV). | COMPLETE |
-| `sudo vgcreate vg_data /dev/vdb` | Created a Volume Group (VG) to pool the disk space. | COMPLETE |
-| `sudo lvcreate -l 100%FREE -n lv_storage vg_data` | Created the Logical Volume (LV) using all available space. | COMPLETE |
-| :--- | :--- | :--- |
-**Evidence:** Logical Volume Structure (`vgs` and `lvs`)
-![LVM Structure](LVM.png) 
-| :--- | :--- | :--- |
-| `sudo mkfs.ext4 /dev/mapper/vg_data-lv_storage` | Formatted the LV with the ext4 filesystem. | COMPLETE |
-| `sudo mkdir /mnt/storage` | Created the mount point. | COMPLETE |
-| `sudo mount ... /mnt/storage` | Mounted the new partition. | COMPLETE |
-| **Persistence** | Updated `/etc/fstab` with the UUID to ensure the LV remounts on reboot. | COMPLETE |
-| :--- | :--- | :--- |
-**Evidence:** Final Persistent Mount Verification (`df -h` after reboot)
-![Final Mount Verification](mounted.png)
+To introduce flexibility and dynamic storage management, a 4GiB secondary virtual disk was added to the Ubuntu server via UTM's hardware configuration.  This is the first piece of required evidence.
+
+After booting, the new disk was verified in the command line using `lsblk` (visible as `/dev/vdb`). The Logical Volume Management (LVM) structure was then initiated:
+1. The disk was initialised as a Physical Volume (`pvcreate /dev/vdb`).
+2. The Volume Group (`vg_data`) was created, pooling the new storage space.
+3. The Logical Volume (`lv_storage`) was created, utilising 100% of the available space within the Volume Group.
+
+The verification of this structure, showing both the **Volume Group (vgs)** and **Logical Volume (lvs)**, is the second piece of evidence.
+![LVM Structure Verification](LVM.png)
+
+Finally, the Logical Volume was prepared for use by formatting it with the `ext4` filesystem (`mkfs.ext4`) and creating a dedicated mount point at `/mnt/storage`. The volume was mounted and verified using the `df -h` command. To ensure this new partition remained accessible after system reboots, the UUID of the Logical Volume was added to the `/etc/fstab` file for persistence. The final verification, which shows the new 3.9 GB partition successfully mounted at `/mnt/storage` after a system reboot, serves as conclusive evidence.
+![Final Persistent Mount Verification (df -h)](mounted.png)
 
 ---
 
@@ -42,9 +36,9 @@ This matrix selects applications representing distinct workload types for perfor
 Anticipated resource usage during the performance tests for proper analysis.
 
 * **`stress-ng` (CPU):** Expected CPU utilization near **100%** on all allocated cores. RAM usage remains low.
-* **`stress-ng` (RAM):** Expected RAM utilization near **100%** (filling both physical memory and swap); CPU utilization should be moderate (20-40%).
+* **`stress-ng` (RAM):** Expected RAM utilisation near **100%** (filling both physical memory and swap); CPU utilisation should be moderate (20-40%).
 * **`fio` (I/O):** Expected Disk I/O (reads/writes) to be near maximum throughput on the LVM partition; CPU and RAM usage should be low/moderate.
-* **`iperf3` (Network):** Expected minimal CPU or RAM usage, but high network interface utilization; performance is dependent on the virtual network bridge speed.
+* **`iperf3` (Network):** Expected minimal CPU or RAM usage, but high network interface utilisation; performance is dependent on the virtual network bridge speed.
 
 ---
 
