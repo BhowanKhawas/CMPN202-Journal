@@ -7,7 +7,8 @@ Maintaining an up-to-date system is the first line of defense against vulnerabil
 * **Command Used:** `sudo apt update && sudo apt upgrade -y`
 
 **Evidence of Patching:**
-![System Updates](updates.png)
+![System Updates](updates1.png)
+![System Updates](updates2.png)
 *(Upload your update screenshot and rename it to updates.png)*
 
 ## 2. Firewall Configuration (Perimeter Defense)
