@@ -9,12 +9,12 @@ Before testing, the necessary utilities were installed on the server via SSH. Th
 ```bash
 # Verify installation of performance testing tools
 apt list --installed | grep -E "(stress-ng|fio|iperf3|nginx)"
+
 2. Performance Testing Execution and Results
 All tests were performed remotely from the Host Workstation via SSH.
 
 A. CPU-Intensive Workload (stress-ng)
 Objective: Measure maximum CPU throughput and core stability. Command: stress-ng --cpu 4 --timeout 60s
-
 Metric	Result	Observation
 CPU Utilization	~98-100%	CPU cores were fully saturated.
 Status	Passed: The test completed successfully without crashing the system.
@@ -25,8 +25,8 @@ Objective: Test the read/write performance of the new LVM partition (/mnt/storag
 Command: fio --name=randwrite --ioengine=libaio ... --directory=/mnt/storage
 
 Metric	Result	Analysis
-Throughput (Write)	417 MiB/s	Extremely high throughput for a virtualised disk.
-IOPS	107k	indicates the VirtIO driver is functioning efficiently with low overhead.
+Throughput (Write)	417 MiB/s	Extremely high throughput for a virtualized disk.
+IOPS	107k	Indicates the VirtIO driver is functioning efficiently with low overhead.
 
 C. Network-Intensive Workload (iperf3)
 Objective: Measure maximum bandwidth between the Host (Mac) and Guest (Ubuntu). Procedure: iperf3 -s was run on the server, and iperf3 -c 192.168.64.8 was executed from the Mac terminal.
