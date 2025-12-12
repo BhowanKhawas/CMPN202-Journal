@@ -44,6 +44,16 @@ This repository contains the technical journal documenting the setup, configurat
     * Critical Reflection and Challenges
     * Final Project Conclusion
 
+### Phase 6: Extended Administration (Future Work)
+* **[Week 6: Advanced Configuration (Coming Soon)](week6.md)**
+    * *Placeholder: Automation or Containerization Setup*
+    * *Placeholder: Advanced Network Services*
+
+### Phase 7: Maintenance & Troubleshooting (Future Work)
+* **[Week 7: System Maintenance Log (Coming Soon)](week7.md)**
+    * *Placeholder: Log Rotation and Analysis*
+    * *Placeholder: Backup and Recovery Strategy*
+
 ---
 
 ## 🛠️ Infrastructure Overview
