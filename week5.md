@@ -4,7 +4,7 @@
 This video demonstrates the successful deployment, security hardening, storage configuration, and performance testing of the Ubuntu Server.
 
 * **Video Link:** [Watch Demonstration Video](BhowanKhawas_OSCoursework_Demonstration.mp4)
-* **Duration:** 8:30 minutes  **Demonstration Highlights:**
+* **Duration:** 7:54 minutes  **Demonstration Highlights:**
 * System Architecture and SSH Access
 * UFW Firewall Status and Rules
 * LVM Storage Structure and Persistence
