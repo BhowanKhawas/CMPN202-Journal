@@ -21,7 +21,7 @@ This repository contains the technical journal documenting the setup, configurat
     * Evidence of System Updates (`apt upgrade`)
     * Firewall Configuration (`ufw`)
     * SSH Public Key Authentication and Password Lockout
-* **[Week 2: Security Planning Documents](week2.md)**
+* **[Week 2: Security Planning Documents](week2-planning.md)**
     * Security Configuration Checklist
     * Performance Testing Plan
     * Threat Model
